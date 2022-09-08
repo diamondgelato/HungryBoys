@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    // [SerializeField] 
+    // add variable to control build delay.
+    [SerializeField] float delay = 1f;
     int towerCost = 75;
 
     GameObject ballista;
     Transform TowerPool;
     TowerDisplay display;
+
+    void Start() {
+        StartCoroutine(Build());
+    }
 
     public bool createTower(GameObject tower, Vector3 position) {
         TowerPool = GameObject.Find("Tower Pool").GetComponent<Transform>();
@@ -30,5 +35,22 @@ public class Tower : MonoBehaviour
             // Debug.Log("Balance not enough: " + bank.CurrentBalance);
         }
         return false;
+    }
+
+    IEnumerator Build() {
+        // turn off all children and grandchildren
+        foreach (Transform child in transform)     
+        {  
+            child.gameObject.SetActive(false);   
+            // Debug.Log(child.gameObject.name);
+        }   
+
+        // enable sequencially
+        foreach (Transform child in transform)     
+        {  
+            child.gameObject.SetActive(true);   
+            // Debug.Log(child.gameObject.name);
+            yield return new WaitForSeconds(delay);
+        }   
     }
 }

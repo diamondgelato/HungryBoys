@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: a7fe61a4e3356214d80a3a5a5cb183e8
+guid: b8b9763b16a6b184a94249310c3fb547
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - ballista: {fileID: 3219458064393657486, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
